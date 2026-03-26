@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Project Page</title>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js" async></script>
+
+<style>
+  #abstract p {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -webkit-text-align-last: justify;
+    -moz-text-align-last: justify;
+    text-align-last: justify;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+</style>
+
+<style>
+  #abstract, #abstract * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  #abstract a,
+  #abstract code {
+    user-select: text;
+  }
+</style>
+
+<style>
+  header, header * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  header a,
+  header code {
+    user-select: text;
+  }
+</style>
+
+<style>
+  .email, .email * {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+</style>
+
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#111827;
+    --muted:#6b7280;
+    --line:#e5e7eb;
+    --accent:#2563eb;
+    --accent2:#0ea5e9;
+    --shadow: 0 10px 30px rgba(17,24,39,.08);
+    --shadow2: 0 6px 18px rgba(17,24,39,.06);
+    --radius:16px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    background:
+      radial-gradient(1000px 500px at 20% -10%, rgba(37,99,235,.08), transparent 55%),
+      radial-gradient(900px 450px at 90% 10%, rgba(14,165,233,.08), transparent 60%),
+      var(--bg);
+    color:var(--text);
+  }
+
+  .wrap{max-width:1120px;margin:0 auto;padding:44px 18px 70px}
+
+  /* Header */
+  header{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:12px;
+    flex-wrap:wrap;
+    text-align:center;
+  }
+
+  h1{
+    margin:0;
+    font-size:30px;
+    letter-spacing:-.35px;
+    line-height:1.15;
+  }
+  .sub{
+    color:var(--muted);
+    margin-top:10px;
+    line-height:1.65;
+    max-width:82ch;
+  }
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid rgba(37,99,235,.18);
+    background:rgba(37,99,235,.05);
+    color:#1f3a8a;
+    font-size:12px;
+    margin-top:12px;
+  }
+  .toplink{
+    color:var(--accent);
+    text-decoration:none;
+    font-weight:600;
+    font-size:13px;
+    padding:10px 12px;
+    border-radius:12px;
+    border:1px solid rgba(37,99,235,.18);
+    background:rgba(37,99,235,.04);
+    box-shadow: var(--shadow2);
+  }
+  .toplink:hover{transform:translateY(-1px)}
+  .toplink:active{transform:translateY(0px)}
+
+  /* Action bar buttons */
+  .bar{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+
+  .btn{
+    border:1px solid var(--line);
+    background:#fff;
+    padding:10px 12px;
+    border-radius:14px;
+    cursor:pointer;
+    box-shadow: var(--shadow2);
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    font-weight:650;
+    font-size:13px;
+    color:var(--text);
+    text-decoration:none;
+    transition:.18s ease;
+    user-select:none;
+  }
+  .btn:hover{
+    transform:translateY(-1px);
+    border-color: rgba(37,99,235,.25);
+    box-shadow: var(--shadow);
+  }
+  .btn.primary{
+    border-color:rgba(37,99,235,.28);
+    background:linear-gradient(180deg, rgba(37,99,235,.06), rgba(37,99,235,.03));
+  }
+  .btn svg{width:16px;height:16px}
+  .hint{color:var(--muted); font-size:12px; margin-top:8px}
+
+  /* Sections */
+  section{margin-top:30px;padding-top:18px;border-top:1px solid var(--line)}
+  h2{margin:0 0 8px;font-size:18px;letter-spacing:-.1px}
+  p{margin:0;color:var(--muted);line-height:1.75}
+  .grid{display:grid;gap:14px;grid-template-columns:1fr 1fr}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}}
+  /* Make Method section single-column so the figure is larger */
+  #method .grid{grid-template-columns:1fr}
+
+  /* Emphasize acronym letters in title */
+  .acronym{
+    font-weight:900;
+    color:#126fe9;                 /* red */
+    text-shadow: 0 1px 0 rgba(0,0,0,.08), 0 6px 18px rgba(220,38,38,.18);
+  }
+
+
+  .card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px;
+    background:rgba(255,255,255,.82);
+    box-shadow: var(--shadow2);
+  }
+  .figure{
+    margin-top:10px;
+    border:1px dashed #d1d5db;
+    border-radius:14px;
+    min-height:210px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--muted);
+    font-size:12px;
+    background:linear-gradient(180deg, rgba(17,24,39,.02), rgba(17,24,39,.00));
+    overflow:hidden;
+    position:relative;
+  }
+  .figure img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* Results gallery (flip/page effect) */
+  .gallery{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-top:12px;
+  }
+  .gbtn{
+    width:42px;height:42px;
+    border-radius:14px;
+    border:1px solid var(--line);
+    background:#fff;
+    cursor:pointer;
+    box-shadow: var(--shadow2);
+    transition:.18s ease;
+    display:grid;
+    place-items:center;
+  }
+  .gbtn:hover{
+    transform:translateY(-1px);
+    border-color: rgba(37,99,235,.25);
+    box-shadow: var(--shadow);
+  }
+  .gbtn:active{transform:translateY(0px)}
+  .gbtn svg{width:18px;height:18px}
+  .panel{
+    flex:1;
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:14px;
+    background:rgba(255,255,255,.86);
+    box-shadow: var(--shadow2);
+  }
+  .cap{
+    color:var(--muted);
+    font-size:12px;
+    margin-top:10px;
+    line-height:1.6;
+  }
+
+  /* Flip-ish animation container */
+  .frame{
+    margin-top:10px;
+    border:1px solid #e5e7eb;
+    border-radius:14px;
+    overflow:hidden;
+    background:linear-gradient(180deg, rgba(17,24,39,.02), rgba(17,24,39,.00));
+    position:relative;
+    height:min(420px, 52vw); /* responsive */
+    min-height:240px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .frame img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+  }
+
+  /* Two-layer page flip illusion */
+  .page{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    backface-visibility:hidden;
+    transform-style:preserve-3d;
+  }
+  .page.current{
+    z-index:2;
+  }
+  .page.next{
+    z-index:1;
+    opacity:0;
+  }
+
+  /* Animations (direction-aware) */
+  @keyframes slideInRight{
+    from{opacity:0; transform:translateX(18px) scale(.995)}
+    to{opacity:1; transform:translateX(0) scale(1)}
+  }
+  @keyframes slideInLeft{
+    from{opacity:0; transform:translateX(-18px) scale(.995)}
+    to{opacity:1; transform:translateX(0) scale(1)}
+  }
+  @keyframes slideOutLeft{
+    from{opacity:1; transform:translateX(0) scale(1)}
+    to{opacity:0; transform:translateX(-18px) scale(.995)}
+  }
+  @keyframes slideOutRight{
+    from{opacity:1; transform:translateX(0) scale(1)}
+    to{opacity:0; transform:translateX(18px) scale(.995)}
+  }
+
+  .anim-in-right{animation:slideInRight .28s ease forwards}
+  .anim-in-left{animation:slideInLeft .28s ease forwards}
+  .anim-out-left{animation:slideOutLeft .22s ease forwards}
+  .anim-out-right{animation:slideOutRight .22s ease forwards}
+
+  /* Citation block */
+  pre{
+    margin:0;
+    background:#0b1020;
+    color:#e9ecf5;
+    border-radius:14px;
+    padding:12px;
+    overflow:auto;
+    font-size:12px;
+    line-height:1.55;
+    box-shadow: var(--shadow2);
+  }
+
+</style>
+
+<style>
+  .card .figure img.motivation-img {
+    max-width: 65%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+  }
+</style>
+
+
+</head>
+
+<body>
+<div class="wrap">
+  <header oncopy="return false" oncut="return false" oncontextmenu="return false">
+    <div>
+      <h1><span class="acronym">S</span>patio-<span class="acronym">T</span>emporal <span class="acronym">H</span>ierarchical <span class="acronym">C</span>odebook <span class="acronym">D</span>iffusion</h1>
+    </div>
+  </header>
+
+  <div class="bar">
+    <button class="btn primary" onclick="goTo('#method')">
+      <!-- method icon (layers) -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2l9 5-9 5-9-5 9-5z"></path>
+        <path d="M3 12l9 5 9-5"></path>
+        <path d="M3 17l9 5 9-5"></path>
+      </svg>
+      Method
+    </button>
+
+    <button class="btn" onclick="goTo('#results')">
+      <!-- results icon (chart) -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 19V5"></path>
+        <path d="M4 19h16"></path>
+        <path d="M7 15l4-4 3 3 5-7"></path>
+      </svg>
+      Results
+    </button>
+
+    <a class="btn" href="https://ieeexplore.ieee.org/abstract/document/11447323" target="_blank" rel="noopener noreferrer">
+      <!-- paper icon (document) -->
+      <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M14 2H7a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7z"></path>
+        <path d="M14 2v5h5"></path>
+        <path d="M9 13h6"></path>
+        <path d="M9 17h6"></path>
+      </svg>
+      Paper
+    </a>
+
+  </div>
+
+
+  <section id="abstract">
+    <h2>Abstract</h2>
+    <p>Remote sensing data contains vast amounts of geographic structural information and fine-grained textural details, making compression essential and necessitating efficient processing for downstream interpretation tasks.
+    Generative models have shown great potential in learned image compression, offering high compression rates and exceptional generation quality. Among these, diffusion models stand out for their ability to produce high-quality reconstructions. However, they may hallucinate small structures and textures due to significant information loss at limited bitrates. Furthermore, compression based on the diffusion process suffers from long inference times caused by numerous denoising steps, which hinders practical deployment.
+    We propose Spatio-Temporal Hierarchical Codebook Diffusion (STHCD), a training-free framework that dynamically allocates resources to align with this hierarchy. STHCD introduces three synergistic components: (1) Spatial Residual Transformation via parameter-free unshuffle operations to adapt spatial granularity; (2) Channel-wise Codebook Splitting for flexible bit allocation without memory explosion; and (3) a Time-Dependent Hierarchical Policy to orchestrate these operations across timesteps.
+    Extensive experiments on nine datasets show that STHCD significantly outperforms state-of-the-art methods in perceptual metrics (LPIPS, DISTS, FID). At equivalent bitrates ($\sim$0.12 bpp), STHCD achieves an 8$\sim$12.5$\times$ speedup (80$\sim$125 vs. 1000 steps) over standard temporal codebook diffusion while optimizing LPIPS by 29.5%. Furthermore, STHCD can achieve a remarkable 15-step diffusion at the same bitrate, with only a minor LPIPS drop, establishing a new paradigm for hierarchical remote sensing compression.</p>
+  </section>
+
+  <section id="method">
+    <h2>Method</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="figure">
+          <img class="motivation-img" src="assets/sthcd_overview.png" alt="Motivation">
+        </div>
+        <p>Motivation.</p>
+      </div>
+      <div class="card">
+        <div class="figure">
+          <img src="assets/sthcd_framework.png" alt="Framework">
+        </div>
+        <p>Framework.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="results">
+    <h2>Results</h2>
+    <div class="gallery">
+      <button class="gbtn" id="gl" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
+
+      <div class="panel">
+        <div class="frame" aria-label="Results gallery">
+          <!-- two layers for animation -->
+          <div class="page current" id="pageA">
+            <img id="imgA" alt="Result example">
+          </div>
+          <div class="page next" id="pageB">
+            <img id="imgB" alt="Result example">
+          </div>
+        </div>
+        <div class="cap" id="gcap"></div>
+      </div>
+
+      <button class="gbtn" id="gr" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M9 18l6-6-6-6"></path>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+    <section id="citation">
+      <h2>Citation</h2>
+      <pre>@article{cheng2026spatio,
+    title={A Spatio-Temporal Hierarchical Diffusion Framework for Training-Free Perceptual Remote Sensing Image Compression},
+    author={Cheng, Yangxuan and Meng, Fanyang and Qi, Hao and Shen, Han and Zhang, Zhongqiang and Wang, Ye and Liang, Yongsheng},
+    journal={IEEE Transactions on Geoscience and Remote Sensing},
+    year={2026},
+    volume={},
+    number={},
+    pages={1-1},
+    publisher={IEEE},
+    doi={10.1109/TGRS.2026.3675642}
+  }</pre>
+  </section>
+</div>
+
+<script>
+  // Smooth scroll helper
+  function goTo(sel){
+    const el = document.querySelector(sel);
+    if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // Results gallery with direction-aware animation
+  const items = [
+    {fig:"assets/results/rd-plots.png", cap:"Rate-distortion curves showing compression performance."},
+    {fig:"assets/results/redundancy-01.png", cap:"Redundancy analysis 1: Spatial hierarchical structure."},
+    {fig:"assets/results/redundancy-02.png", cap:"Redundancy analysis 2: Codebook utilization patterns."},
+    {fig:"assets/results/vis-comparison-01.png", cap:"Visual comparison 1: Reconstruction quality across different methods."},
+    {fig:"assets/results/vis-comparison-02.png", cap:"Visual comparison 2: Detail preservation and texture fidelity."},
+    {fig:"assets/results/ctf.png", cap:"CTF (Computational-Time-Fidelity) trade-off analysis."},
+    {fig:"assets/results/sar-detection.png", cap:"SAR detection: Downstream task performance evaluation."},
+    {fig:"assets/results/hsi-classification.png", cap:"HSI classification: Hyperspectral image analysis results."},
+    {fig:"assets/results/devices.png", cap:"Device compatibility and deployment scenarios."}
+  ];
+
+  let idx = 0;
+  const cap = document.getElementById('gcap');
+
+  const pageA = document.getElementById('pageA');
+  const pageB = document.getElementById('pageB');
+  const imgA = document.getElementById('imgA');
+  const imgB = document.getElementById('imgB');
+
+  let showingA = true;
+  let locked = false;
+
+  function setPageContent(imgEl, item){
+    imgEl.src = item.fig;
+  }
+
+  function renderInitial(){
+    setPageContent(imgA, items[idx]);
+    cap.textContent = items[idx].cap;
+    // make next layer hidden
+    pageB.style.opacity = 0;
+  }
+
+  function animateTo(newIdx, dir){
+    if(locked) return;
+    locked = true;
+
+    const nextItem = items[newIdx];
+    cap.textContent = nextItem.cap;
+
+    const curPage = showingA ? pageA : pageB;
+    const nextPage = showingA ? pageB : pageA;
+    const curImg = showingA ? imgA : imgB;
+    const nextImg = showingA ? imgB : imgA;
+
+    // prepare next page
+    setPageContent(nextImg, nextItem);
+    nextPage.style.opacity = 1;
+
+    // reset classes
+    curPage.classList.remove('anim-out-left','anim-out-right','anim-in-left','anim-in-right');
+    nextPage.classList.remove('anim-out-left','anim-out-right','anim-in-left','anim-in-right');
+
+    // animate out current and in next
+    if(dir === 'right'){
+      curPage.classList.add('anim-out-left');
+      nextPage.classList.add('anim-in-right');
+    }else{
+      curPage.classList.add('anim-out-right');
+      nextPage.classList.add('anim-in-left');
+    }
+
+    // after animation, swap roles
+    setTimeout(()=>{
+      // hide old page
+      curPage.style.opacity = 0;
+      curPage.classList.remove('anim-out-left','anim-out-right');
+      nextPage.classList.remove('anim-in-left','anim-in-right');
+
+      // keep next visible
+      nextPage.style.opacity = 1;
+      showingA = !showingA;
+      locked = false;
+    }, 320);
+  }
+
+  function prev(){
+    const newIdx = (idx - 1 + items.length) % items.length;
+    idx = newIdx;
+    animateTo(idx, 'left');
+  }
+  function next(){
+    const newIdx = (idx + 1) % items.length;
+    idx = newIdx;
+    animateTo(idx, 'right');
+  }
+
+  document.getElementById('gl').onclick = prev;
+  document.getElementById('gr').onclick = next;
+
+  window.addEventListener('keydown', (e)=>{
+    // ignore if user is typing in an input (future-proof)
+    const tag = (document.activeElement && document.activeElement.tagName) || "";
+    if(["INPUT","TEXTAREA"].includes(tag)) return;
+    if(e.key === 'ArrowLeft') prev();
+    if(e.key === 'ArrowRight') next();
+  });
+
+  // init
+  renderInitial();
+
+</script>
+</body>
+</html>
